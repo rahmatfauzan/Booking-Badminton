@@ -57,6 +57,43 @@
                                 </thead>
                                 <tbody>
 
+                                    @foreach ($booking as $item)
+                                        <tr class="bg-white border-b">
+                                            <td class="px-6 py-4">
+                                                {{ $loop->iteration }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $item->lapangan->nama }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $item->tgl_pemesanan }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $item->tgl_main }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $item->jam }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $item->status }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                @if ($item->status == 'pending')
+                                                    <a href="{{ route('user.batalBooking', $item->id) }}"
+                                                        class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+                                                        onclick="return confirm('Yakin ingin membatalkan pemesanan?')">Batal</a>
+                                                @else
+                                                    <span
+                                                        class="px-4 py-2 text-white bg-red-500 rounded-md disabled">Batal</span>
+                                                @endif
+
+
+                                                {{-- <a href="{{ route('user.batalBooking', $item->id) }}"
+                                                    class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+                                                    onclick="return confirm('Yakin ingin membatalkan pemesanan?')">Batal</a> --}}
+                                            </td>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>

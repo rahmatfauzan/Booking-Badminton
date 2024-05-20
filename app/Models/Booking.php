@@ -10,6 +10,14 @@ class booking extends Model
 {
     use HasFactory;
     protected $table = 'bookings';
+    protected $fillable = [
+        'id_user',
+        'id_lapangan',
+        'tgl_pemesanan',
+        'tgl_main',
+        'jam',
+        'status'
+    ];
 
     public function user(): BelongsTo
     {
@@ -17,6 +25,6 @@ class booking extends Model
     }
     public function lapangan(): BelongsTo
     {
-        return $this->belongsTo(Lapangan::class, 'id');
+        return $this->belongsTo(Lapangan::class, 'id_lapangan');
     }
 }

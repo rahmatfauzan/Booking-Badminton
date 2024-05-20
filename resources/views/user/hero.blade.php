@@ -24,9 +24,12 @@
                         untuk
                         Membooking lapangan, anda dapat memesannya langsung dari Gadget Anda</p>
                     <div class="flex mt-8">
-                        <button>
+                        {{-- <button>
                             <span class="px-4 py-4 text-white bg-red-500 hover:bg-red-600">Book-Now</span>
-                        </button>
+                        </button> --}}
+                        <a href="{{ route('login') }}">
+                            <button class="px-4 py-4 text-white bg-red-500 hover:bg-red-600">Book-Now</button>
+                        </a>
                         <ion-icon name="chevron-forward" class="text-6xl hover:text-gray-800"></ion-icon>
                     </div>
                 </div>

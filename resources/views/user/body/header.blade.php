@@ -6,12 +6,15 @@
             <div class="order-2 hidden lg:block">
                 <ul class="flex gap-12 text-gray-400 text-[15px]">
                     <li>
-                        <a href=""
-                            class="{{ request()->is('user/lapangan/*') ? 'text-sky-500' : '' }}">Lapangan</a>
+                        <a href="{{ route('user.lapangan') }}"
+                            class="{{ request()->is('user/lapangan') ? 'text-sky-500' : '' }}">Lapangan</a>
                     </li>
 
-                    <li><a href="">Pesanan</a></li>
-                    <li><a href="">Profil</a></li>
+                    <li><a href="{{ route('user.pesanan') }}"
+                            class="{{ request()->is('user/pesanan') ? 'text-sky-500' : '' }}">Pesanan</a>
+                    </li>
+                    <li><a href="" class="{{ request()->is('user/profil') ? 'text-sky-500' : '' }}">Profil</a>
+                    </li>
                 </ul>
             </div>
             <button class="lg:hidden">
@@ -41,13 +44,15 @@
                 </button>
             </li>
             <li>
-                <button class="flex flex-col items-center justify-center gap-1 opacity-50 text-gray flex-center">
+                <button
+                    class="flex flex-col items-center justify-center gap-1 opacity-50 {{ request()->is('user/pesanan') ? 'text-sky-600' : ' text-gray' }} flex-center">
                     <ion-icon name="newspaper" class="text-2xl"></ion-icon>
                     <span class="text-sm">Pesanan</span>
                 </button>
             </li>
             <li>
-                <button class="flex flex-col items-center justify-center gap-1 opacity-50 text-gray flex-center">
+                <button
+                    class="flex flex-col items-center justify-center gap-1 opacity-50 {{ request()->is('user/profil') ? 'text-sky-600' : ' text-gray' }} flex-center">
                     <ion-icon name="people" class="text-2xl"></ion-icon>
                     <span class="text-sm">Profil</span>
                 </button>

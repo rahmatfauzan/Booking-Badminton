@@ -14,8 +14,9 @@
                     class="text-5xl sm:order-2 text-sky-500 hover:text-sky-600"></ion-icon>
             </button>
             <div class="order-3 hidden sm:block ">
-                <button class=" text-[15px] text-gray-400  px-4 py-2">Masuk</button>
-                <button class="text-sky-50 text-[15px] hover:bg-red-600 bg-red-500 px-4 py-2">Daftar</button>
+                <a href="{{ route('login') }}" class="text-[15px] text-gray-400 hover:text-gray-800 px-4 py-2">Masuk</a>
+                <a href="{{ route('register') }}"
+                    class="text-sky-50 text-[15px] hover:bg-red-600 bg-red-500 px-4 py-2">Daftar</a>
             </div>
         </div>
     </div>
@@ -59,8 +60,7 @@
             <button class="px-8 py-4 text-sm font-semibold bg-white grow hover:bg-gray-50">
                 Sign Up
             </button>
-            <button
-                class="px-8 py-4 text-sm font-semibold text-white bg-red-500 rounded-full grow hover:bg-red-600">
+            <button class="px-8 py-4 text-sm font-semibold text-white bg-red-500 rounded-full grow hover:bg-red-600">
                 Login
             </button>
         </div>
