@@ -34,10 +34,15 @@ class LapanganResource extends Resource
                     TextInput::make("nama")->label('Nama')->required(),
                     TextInput::make("jenis")->label('Jenis')->required(),
                     TextInput::make("harga")->label('Harga')->required(),
-                    FileUpload::make("gambar")->label('Gambar (JPG/JPEG/PNG)')->image()
-                ])
+                FileUpload::make("gambar")
+                    ->label('Gambar (JPG/JPEG/PNG)')
+                    ->image()
+                    ->disk('lapangan') // specify the disk
+                    ->rules('image', 'mimes:jpg,jpeg,png')
+            ])
             ]);
     }
+
 
     public static function table(Table $table): Table
     {
@@ -47,8 +52,10 @@ class LapanganResource extends Resource
                 TextColumn::make('nama')->label('Nama')->sortable()->searchable(),
                 TextColumn::make('jenis')->label('Jenis')->sortable()->searchable(),
                 TextColumn::make('harga')->label('Harga')->sortable()->searchable(),
-                ImageColumn::make('gambar')->label('Gambar')->getStateUsing(fn ($record) => Storage::url($record->gambar))
-            ])
+            ImageColumn::make('gambar')
+                ->label('Gambar')
+                ->getStateUsing(fn ($record) => asset('assets/img/lapangan/' . $record->gambar))
+        ])
             ->filters([
                 //
             ])
