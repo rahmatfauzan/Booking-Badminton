@@ -1,85 +1,3 @@
-{{-- @extends('user.layout')
-@section('title', 'Lapangan')
-@section('content')
-    <section class="px-4">
-        <div class="container mx-auto pt-28">
-            <p class="text-gray-400">Lapangan/Jadwal</p>
-            <form method="GET" action="{{ route('user.lapangan-pemesanan', ['id' => $id, 'tgl_main' => $date]) }}">
-                <div class="flex items-center justify-center h-10 mt-4">
-                    <input type="date" name="tgl_main" value="{{ $date }}"
-                        class="w-1/2 h-full px-4 py-2 text-gray-400 rounded-l-lg outline-none">
-                    <button type="submit"
-                        class="flex items-center justify-center h-full px-4 py-2 text-white rounded-r-lg sm:w-1/12 lg:w-[82px] bg-sky-400 hover:bg-sky-500">
-                        <ion-icon name="search"></ion-icon>
-                    </button>
-                </div>
-            </form>
-            <div class="flex flex-wrap justify-center gap-4 mt-10">
-                @foreach (['08:00-09:00', '09:00-10:00', '10:00-11:00', '11:00-12:00', '12:00-13:00', '13:00-14:00', '14:00-15:00', '15:00-16:00', '16:00-17:00', '17:00-18:00', '18:00-19:00', '19:00-20:00', '20:00-21:00', '21:00-22:00', '22:00-23:00'] as $time)
-                    @php
-                        $isBooked = in_array($time, $bookedTimes);
-                    @endphp
-                    <label class="relative cursor-pointer">
-                        <input type="checkbox" class="sr-only peer" {{ $isBooked ? 'disabled' : '' }}>
-                        <div
-                            class="h-[184px] w-[177px] {{ $isBooked ? 'bg-red-500' : 'bg-white' }} p-5 flex flex-col justify-center items-center rounded-md peer-checked:bg-sky-400 peer-checked:text-white peer-checked:scale-[1.05] transition-all duration-300 ease-in-out hover:scale-[1.03] shadow-xl {{ $isBooked ? '' : 'border-transparent hover:border-blue-400 border-2' }}">
-                            <ion-icon name="{{ $isBooked ? '' : 'add-circle-sharp' }}"
-                                class="absolute text-2xl text-white top-3 left-3"></ion-icon>
-                            <ion-icon name="logo-yen" class="{{ $isBooked ? 'text-white' : '' }} text-8xl"></ion-icon>
-                            <p class="mt-4 font-bold {{ $isBooked ? 'text-white' : '' }}">{{ $time }}</p>
-                            @if ($isBooked)
-                                <p class="mt-4 font-bold text-white">BOOKED</p>
-                            @endif
-                        </div>
-                    </label>
-                @endforeach
-            </div>
-            <div class="flex items-center justify-center h-15 mt-14">
-                <button id="pesanButton" onclick="my_modal_1.showModal()" style="display:none"
-                    class="flex items-center justify-center w-1/2 h-full px-4 py-2 text-white rounded-md shadow-lg bg-sky-400 hover:bg-sky-500">
-                    PESAN
-                </button>
-                <dialog id="my_modal_1" class="modal">
-                    <div class="modal-box">
-                        <h3 class="text-lg font-bold">Konfirmasi</h3>
-                        <p class="py-4">Apakah anda yakin ingin memesankan lapangan ini</p>
-                        <hr>
-                        <div class="modal-action">
-                            <form method="dialog">
-                                <button class="btn btn-error">YES</button>
-                                <button class="btn">NO</button>
-                            </form>
-                        </div>
-                    </div>
-                </dialog>
-            </div>
-        </div>
-    </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            const pesanButton = document.querySelector('#pesanButton');
-
-            checkboxes.forEach(function(checkbox) {
-                checkbox.addEventListener('change', function() {
-                    let anyChecked = false;
-                    checkboxes.forEach(function(cb) {
-                        if (cb.checked && !cb.disabled) {
-                            anyChecked = true;
-                        }
-                    });
-
-                    if (anyChecked) {
-                        pesanButton.style.display = 'block';
-                    } else {
-                        pesanButton.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
-@endsection --}}
-
 @extends('user.layout')
 @section('title', 'Lapangan')
 @section('content')
@@ -136,8 +54,8 @@
             <h3 class="font-bold text-lg">Konfirmasi</h3>
             <p class="py-4">Apakah Anda yakin ingin menyimpan pesanan?</p>
             <div class="modal-action">
-                <button class="btn" onclick="submitForm()">Ya</button>
-                <button class="btn" onclick="my_modal_5.close()">Tidak</button>
+                <button class="btn btn-primary" onclick="submitForm()">Ya</button>
+                <button class="btn btn-neutral" onclick="my_modal_5.close()">Tidak</button>
             </div>
         </div>
     </dialog>

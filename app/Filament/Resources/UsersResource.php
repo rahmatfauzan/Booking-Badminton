@@ -28,18 +28,18 @@ class UsersResource extends Resource
         return $form
             ->schema([
                 Card::make()
-                ->schema([
-                    TextInput::make("name")->required(),
-                    TextInput::make("username")->required(),
-                    TextInput::make("email")->required(),
-                    TextInput::make("password")->required(),
-                    TextInput::make("telepon")->required(),
-                    Select::make('role')->label('Role')
+                    ->schema([
+                        TextInput::make("name")->required(),
+                        TextInput::make("username")->required(),
+                        TextInput::make("email")->required(),
+                        TextInput::make("password")->required(),
+                        TextInput::make("telepon")->required(),
+                        Select::make('role')->label('Role')
                             ->options([
                                 'admin' => 'Admin',
                                 'user' => 'User'
                             ])->required()
-                ])
+                    ])
             ]);
     }
 
@@ -66,14 +66,14 @@ class UsersResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -81,5 +81,5 @@ class UsersResource extends Resource
             'create' => Pages\CreateUsers::route('/create'),
             'edit' => Pages\EditUsers::route('/{record}/edit'),
         ];
-    }    
+    }
 }

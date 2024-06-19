@@ -12,7 +12,7 @@
 <body>
     @include('user.body.header_hero')
 
-    <section class="px-4">
+    <section class="px-4" id="dashboard">
         <div class="container mx-auto pt-28">
             <div class="grid grid-cols-12">
                 <div class="col-span-12 md:col-span-7">
@@ -47,7 +47,7 @@
         </div>
     </section>
 
-    <section class="px-4 mt-16">
+    <section class="px-4 mt-16" id="lapangan">
         <h1 class="flex justify-center text-4xl font-bold text-sky-500">Lapangan Kami</h1>
         <div class="container mt-6">
             <div class="grid grid-cols-12 gap-5 m-auto">

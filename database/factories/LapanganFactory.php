@@ -23,13 +23,13 @@ class LapanganFactory extends Factory
             'gambar' => function (array $data) {
                 // Jika jenis lapangan adalah Vynil, set gambar ke 'assets/img/lapangan/lap1.jpg'
                 if ($data['jenis'] === 'Vynil') {
-                    return 'assets/img/lapangan/lap2.jpg';
+                    return 'lap2.jpg';
                 }
                 // Jika jenis lapangan adalah Keramik, set gambar ke 'assets/img/lapangan/lap2.jpg'
                 elseif ($data['jenis'] === 'Keramik') {
-                    return 'assets/img/lapangan/lap3.jpg';
+                    return 'lap3.jpg';
                 } elseif ($data['jenis'] === 'Karet') {
-                    return 'assets/img/lapangan/lap1.jpg';
+                    return 'lap1.jpg';
                 }
                 // Jika jenis lapangan tidak cocok, kembalikan null atau atur logika lainnya di sini
                 else {

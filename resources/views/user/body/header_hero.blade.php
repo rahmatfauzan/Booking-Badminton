@@ -4,9 +4,9 @@
             <div class="text-sky-500 text-4xl font-bold font-['Sora'] order-0 sm:order-2">MintonKuy</div>
             <div class="order-2 hidden lg:block">
                 <ul class="flex gap-12 text-gray-400 text-[15px]">
-                    <li><a href="">Dashboard</a></li>
-                    <li><a href="">Lapangan</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#lapangan">Lapangan</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </div>
             <button class="lg:hidden">

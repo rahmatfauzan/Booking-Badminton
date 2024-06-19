@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         // Menyisipkan data baru
         user::insert([
             [
-                'nama' => 'Admin',
+                'name' => 'Admin',
                 'username' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('111'),
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
             [
-                'nama' => 'User',
+                'name' => 'User',
                 'username' => 'User',
                 'email' => 'user@gmail.com',
                 'password' => Hash::make('111'),

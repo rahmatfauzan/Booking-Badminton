@@ -75,7 +75,16 @@
                                                 {{ $item->jam }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $item->status }}
+                                                @if ($item->status == 'paid')
+                                                    <span
+                                                        class="text-white bg-green-600 px-2 py-1 rounded item-center justify-center">{{ $item->status }}</span>
+                                                @elseif ($item->status == 'pending')
+                                                    <span
+                                                        class="text-white bg-yellow-600 py-1 rounded item-center justify-center">{{ $item->status }}</span>
+                                                @elseif ($item->status == 'cancelled')
+                                                    <span
+                                                        class="text-white bg-red-600 px-2 py-1 rounded item-center justify-center">{{ $item->status }}</span>
+                                                @endif
                                             </td>
                                             <td class="px-6 py-4">
                                                 @if ($item->status == 'pending')
