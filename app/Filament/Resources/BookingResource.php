@@ -49,10 +49,7 @@ class BookingResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->label('ID')->sortable()->searchable(),
                 TextColumn::make('user.name')->label('Nama User')->sortable()->searchable(),
-                // TextColumn::make('id_user')->sortable()->searchable(),
-                // TextColumn::make('id_lapangan')->sortable()->searchable(),
                 TextColumn::make('lapangan.nama')->label('Lapangan')->sortable()->searchable(),
                 TextColumn::make('tgl_pemesanan')->label('Tanggal Pemesanan')->sortable()->searchable(),
                 TextColumn::make('tgl_main')->label('Tanggal Main')->sortable()->searchable(),
