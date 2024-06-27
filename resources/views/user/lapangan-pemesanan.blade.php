@@ -54,8 +54,8 @@
             <h3 class="font-bold text-lg">Konfirmasi</h3>
             <p class="py-4">Apakah Anda yakin ingin menyimpan pesanan?</p>
             <div class="modal-action">
-                <button class="btn btn-primary" onclick="submitForm()">Ya</button>
-                <button class="btn btn-neutral" onclick="my_modal_5.close()">Tidak</button>
+                <button class="btn" onclick="submitForm()">Ya</button>
+                <button class="btn" onclick="my_modal_5.close()">Tidak</button>
             </div>
         </div>
     </dialog>
@@ -74,20 +74,24 @@
             modal.showModal();
         }
 
+
         function submitForm() {
             const form = document.getElementById('bookingForm');
             form.submit();
             showSuccessModal(); // Menambahkan pemanggilan showSuccessModal()
         }
 
+
         function showSuccessModal() {
             const modal = document.getElementById('successModal');
             modal.showModal();
         }
 
+
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             const pesanButton = document.querySelector('#pesanButton');
+
 
             checkboxes.forEach(function(checkbox) {
                 checkbox.addEventListener('change', function() {
@@ -98,6 +102,7 @@
                         }
                     });
 
+
                     if (anyChecked) {
                         pesanButton.style.display = 'block';
                     } else {
@@ -107,5 +112,6 @@
             });
         });
     </script>
+
 
 @endsection

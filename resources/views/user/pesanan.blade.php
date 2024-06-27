@@ -80,7 +80,7 @@
                                                         class="text-white bg-green-600 px-2 py-1 rounded item-center justify-center">{{ $item->status }}</span>
                                                 @elseif ($item->status == 'pending')
                                                     <span
-                                                        class="text-white bg-yellow-600 py-1 rounded item-center justify-center">{{ $item->status }}</span>
+                                                        class="text-white bg-yellow-600 px-2 py-1 rounded item-center justify-center">{{ $item->status }}</span>
                                                 @elseif ($item->status == 'cancelled')
                                                     <span
                                                         class="text-white bg-red-600 px-2 py-1 rounded item-center justify-center">{{ $item->status }}</span>
@@ -91,15 +91,28 @@
                                                     <a href="{{ route('user.batalBooking', $item->id) }}"
                                                         class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
                                                         onclick="return confirm('Yakin ingin membatalkan pemesanan?')">Batal</a>
-                                                @else
-                                                    <span
-                                                        class="px-4 py-2 text-white bg-red-500 rounded-md disabled">Batal</span>
                                                 @endif
+                                                @if ($item->status != 'paid'&&$item->status != 'cancelled')
+                                                    <button
+                                                        class="px-4 py-2 text-white rounded-md bg-sky-400 hover:bg-sky-500"
+                                                        onclick="showConfirmationModal('{{ $item->snap_token }}', '{{ $item->id }}')">Bayar</button>
 
 
-                                                {{-- <a href="{{ route('user.batalBooking', $item->id) }}"
-                                                    class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
-                                                    onclick="return confirm('Yakin ingin membatalkan pemesanan?')">Batal</a> --}}
+                                                    <dialog id="modal_{{ $item->id }}"
+                                                        class="modal modal-bottom sm:modal-middle">
+                                                        <div class="modal-box">
+                                                            <h3 class="text-lg font-bold">Konfirmasi</h3>
+                                                            <p class="py-4">Apakah Anda yakin ingin melakukan pembayaran?
+                                                            </p>
+                                                            <div class="modal-action">
+                                                                <button class="btn"
+                                                                    onclick="pay('{{ $item->snap_token }}', '{{ $item->id }}')">Ya</button>
+                                                                <button class="btn"
+                                                                    onclick="closeModal('{{ $item->id }}')">Tidak</button>
+                                                            </div>
+                                                        </div>
+                                                    </dialog>
+                                                @endif
                                             </td>
                                     @endforeach
 
@@ -113,4 +126,44 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key={{ env('MIDTRANS_CLIENT_KEY') }}></script>
+    <script type="text/javascript">
+        function pay(snapToken, id) {
+            const modal = document.getElementById('modal_' + id);
+            modal.close();
+            // SnapToken acquired from parameter
+            snap.pay(snapToken, {
+                // Optional
+                onSuccess: function(result) {
+                    // Redirect to success page using the route() function
+                    var url = 'pesanan/bayar/sukses/' + id;
+                    window.location.href = url;
+                },
+                // Optional
+                onPending: function(result) {
+                    /* You may add your own js here, this is just example */
+                    document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+                },
+                // Optional
+                onError: function(result) {
+                    /* You may add your own js here, this is just example */
+                    document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+                }
+            });
+        }
+
+
+        function showConfirmationModal(snapToken, id) {
+            const modal = document.getElementById('modal_' + id);
+            modal.showModal();
+        }
+
+
+        function closeModal(id) {
+            const modal = document.getElementById('modal_' + id);
+            modal.close();
+        }
+    </script>
 @endsection

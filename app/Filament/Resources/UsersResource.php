@@ -47,11 +47,9 @@ class UsersResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable()->searchable(),
-                TextColumn::make('nama')->sortable()->searchable(),
+                TextColumn::make('name')->sortable()->searchable(),
                 TextColumn::make('username')->sortable()->searchable(),
                 TextColumn::make('email')->sortable()->searchable(),
-                TextColumn::make('password')->sortable()->searchable(),
                 TextColumn::make('telepon')->sortable()->searchable(),
                 TextColumn::make('role')->sortable()->searchable()
             ])

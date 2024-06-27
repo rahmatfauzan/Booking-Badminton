@@ -7,13 +7,14 @@
                 <ul class="flex gap-12 text-gray-400 text-[15px]">
                     <li>
                         <a href="{{ route('user.lapangan') }}"
-                            class="{{ request()->is('user/lapangan') || request()->is('user/lapangan/*') ? 'text-sky-500' : '' }}">Lapangan</a>
+                            class="{{ request()->is('user/lapangan') ? 'text-sky-500' : '' }}">Lapangan</a>
                     </li>
 
                     <li><a href="{{ route('user.pesanan') }}"
                             class="{{ request()->is('user/pesanan') ? 'text-sky-500' : '' }}">Pesanan</a>
                     </li>
-                    <li><a href="" class="{{ request()->is('user/profil') ? 'text-sky-500' : '' }}">Profil</a>
+                    <li><a href="{{ route('user.profil') }}"
+                            class="{{ request()->is('user/profile') ? 'text-sky-500' : '' }}">Profil</a>
                     </li>
                 </ul>
             </div>
