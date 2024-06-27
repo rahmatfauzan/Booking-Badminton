@@ -6,7 +6,7 @@
             <h2 class="text-5xl font-bold text-center text-sky-500">Lapangan</h2>
             <section class="px-4 mt-10">
                 <div class="container mt-6">
-                    <div class="grid grid-cols-12 gap-5 m-auto">
+                    <div class="grid grid-cols-12 gap-4 m-auto">
                         @foreach ($lapangans as $item)
                             <div
                                 class="items-center col-span-12 overflow-hidden bg-white border rounded-md cursor-pointer sm:col-span-6 md:col-span-4 lg:col-span-3 hover:shadow-xl">

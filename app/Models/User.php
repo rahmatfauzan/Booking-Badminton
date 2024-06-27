@@ -22,6 +22,9 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'role',
+        'telepon',
+        'username'
     ];
 
     /**
@@ -58,7 +61,7 @@ class User extends Authenticatable implements FilamentUser
     // {
     //     return $this->role === self::ROLE_ADMINISTRATOR;
     // }
-    
+
 
     /**
      * Role constants

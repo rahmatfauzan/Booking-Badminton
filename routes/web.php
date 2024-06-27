@@ -6,9 +6,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('', function () {
-    return view('user.hero');
-});
+// Route::get('', function () {
+//     return view('user.hero');
+// });
+Route::get('', [LapanganController::class, 'viewHero'])->name('user.lapangan');
 // User
 Route::middleware('auth', 'role:user')->group(function () {
 

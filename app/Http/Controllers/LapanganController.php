@@ -13,6 +13,11 @@ class LapanganController extends Controller
         $lapangans = lapangan::all();
         return view('user.lapangan', compact('lapangans'));
     }
+    public function viewHero()
+    {
+        $lapangans = lapangan::limit(4)->get();
+        return view('user.hero', compact('lapangans'));
+    }
 
     
 
